@@ -1,0 +1,142 @@
+/* Basic Setup */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Source Sans 3', sans-serif;
+    font-display: block;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #312F2F;
+    --max-inner-width: 1000px;
+    padding: 0px max(0px, calc((100vw - var(--max-inner-width))/2));
+    min-height: 100vh;
+}
+
+/* Nav */
+
+nav {
+    display: grid;
+    grid-template-columns: min-content auto repeat(4, min-content);
+    gap: 20px;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+nav a {
+    text-decoration: none;
+    transition: color 0.2s linear;
+}
+
+nav a:hover {
+    color: #BBBBBB;
+}
+
+nav a.logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+nav a.link {
+    font-size: 22px;
+}
+
+/* Main */
+
+main {
+    padding: 60px;
+}
+
+/* Footer */
+
+footer {
+    padding: 20px;
+}
+
+/* Utility Classes */
+
+@keyframes background-pulse {
+    0% {
+        background-position: 0% 50%;
+    }
+    30% {
+        background-position: 10% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #63ADF2 0%, #6622DD 33%, #63ADF2 67%, #6622DD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.2));
+
+    background-size: 300%;
+    background-position: 0% 50%;
+
+    animation: background-pulse 5s ease-in-out infinite;
+    transition: filter 0.1s linear;
+}
+
+.gradient-text:hover {
+    filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.5));
+}
+
+.shiny-panel {
+    --border-size: 2px;
+    margin: var(--border-size);
+    position: relative;
+    background: rgb(88,87,87);
+    border-radius: calc(10px - var(--border-size));
+    padding: 10px;
+}
+
+.shiny-panel::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: calc(0px - var(--border-size));
+    left: calc(0px - var(--border-size));
+    width: calc(100% + var(--border-size)*2);
+    height: calc(100% + var(--border-size)*2);
+    border-radius: 10px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 1) 67%, rgba(255, 255, 255, 0) 100%);
+    background-size: 300%;
+    background-position: 0% 0%;
+    transition: background-position 0.5s ease;
+}
+
+.shiny-panel:hover::before {
+    background-position: 50% 50%;
+}
+
+/* Scrollbar */
+
+*::-webkit-scrollbar {
+	position: absolute;
+  width: 8px;
+}
+ 
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: #777777;
+	border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background-color: #999999;
+}
