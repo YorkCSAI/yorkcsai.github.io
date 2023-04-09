@@ -57,7 +57,38 @@ main {
 
 footer {
     padding: 20px;
+    display: grid;
+    grid-template-areas:
+        "tl tr"
+        "bl br";
+    grid-template-columns: 1fr 1fr;
 }
+
+footer p {
+    color: #A1A1A1;
+    font-size: 14px;
+}
+
+.tl {
+    grid-area: tl;
+    text-align: left;
+}
+
+.tr {
+    grid-area: tr;
+    text-align: right;
+}
+
+.bl {
+    grid-area: bl;
+    text-align: left;
+}
+
+.br {
+    grid-area: br;
+    text-align: right;
+}
+
 
 /* Utility Classes */
 
